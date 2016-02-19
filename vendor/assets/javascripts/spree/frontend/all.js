@@ -9,3 +9,25 @@
 //= require spree/frontend
 
 //= require_tree .
+
+$("a#fancybox").fancybox({
+    	openEffect	: 'elastic',
+    	closeEffect	: 'elastic',
+
+    	helpers : {
+    		title : {
+    			type : 'inside'
+    		}
+    	}
+    });
+
+function setImage() {
+		var img = $('#fancybox').find('img')[0].src;
+		console.log($('#fancybox'));
+		$('#fancybox')[0].href = img;
+		console.log($('#fancybox'));
+	}
+
+$(document).ready(function(){
+	setImage();
+});

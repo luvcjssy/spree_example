@@ -1,0 +1,22 @@
+<nav class="col-md-12">
+  <div id="main-nav-bar" class="navbar">
+    <ul class="nav navbar-nav" data-hook>
+      <li id="home-link" data-hook class="active"><%= link_to Spree.t(:home), spree.root_path %></li>
+      <li id="aboutus-link" data-hook><%= link_to Spree.t(:about_us), '#' %></li>
+      <li id="careers-link" data-hook><%= link_to Spree.t(:careers), '#' %></li>
+      <li id="contactus-link" data-hook><%= link_to Spree.t(:contact_us), '#' %></li>
+      <li id="companyprofile-link" data-hook><%= link_to Spree.t(:company_profile), '#' %></li>
+      <li id="companyregistration-link" data-hook><%= link_to Spree.t(:company_registration), '#' %></li>
+      <li id="whishlist-link" data-hook><%= link_to Spree.t(:whish_list), '#' %></li>
+    </ul>
+    <!-- <ul class="nav navbar-nav navbar-right" data-hook>
+      <li id="link-to-cart" data-hook>
+        <noscript>
+          <%= link_to Spree.t(:cart), '/cart' %>
+        </noscript>
+        &nbsp;
+      </li>
+      <script>Spree.fetch_cart()</script>
+    </ul> -->
+  </div>
+</nav>

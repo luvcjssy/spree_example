@@ -1,21 +1,23 @@
-<h1 id="logo"><a href="#">shoparound</a></h1> 
-<!-- Cart -->
-    <div id="cart">
-      <!-- <a href="#" class="cart-link">Your Shopping Cart</a> -->
-      <%= link_to Spree.t(:your_shopping_cart), '/cart', class: "cart-link" %>
-      <div class="cl">&nbsp;</div>
-      <script>Spree.fetch_cart()</script>
+<div id="spree-header">
+  <header id="header" class="header_top" data-hook>
+    <div class="container">
+      <div class="row">
+        <figure id="logo" class="col-md-4 col-sm-3" data-hook>
+          <%= logo %>
+        </figure>
+        <%= render :partial => 'spree/shared/nav_bar' %>
+      </div>
     </div>
-    <!-- End Cart -->
-    
-    <!-- Navigation -->
-    <div id="navigation">
-      <ul>
-          <li><%= link_to Spree.t(:home), spree.root_path, class: 'active' %></li>
-          <li><a href="#">Support</a></li>
-          <li><a href="#">My Account</a></li>
-          <li><a href="#">The Store</a></li>
-          <li><a href="#">Contact</a></li>
-      </ul>
+  </header>
+  <div class="h_menu4">
+    <div class="container">
+    <%= render :partial => 'spree/shared/main_nav_bar' if store_menu? %>
     </div>
-    <!-- End Navigation -->
+  </div>
+</div>
+
+<div class="slider">
+  <img src="/assets/spree/frontend/banner1.jpg" class="img-responsive" alt="">
+</div>
+
+<%= render :partial => 'spree/shared/search_bar' %>

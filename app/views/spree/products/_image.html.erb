@@ -1,0 +1,7 @@
+<%= link_to '' , id: 'fancybox' do %>
+	<% if defined?(image) && image %>
+	  <%= image_tag image.attachment.url(:product), :itemprop => "image" %>
+	<% else %>
+	  	<%= product_image(@product, :itemprop => "image") %>
+	<% end %>
+<%end%>
