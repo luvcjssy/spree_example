@@ -104,3 +104,7 @@ ul.nav li.active a, .nav li a:hover {
     text-transform: uppercase;
     color: #df1f26;
 }
+
+.modal form {
+    margin-bottom: 0;
+}

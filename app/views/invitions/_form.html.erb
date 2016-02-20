@@ -1,0 +1,15 @@
+<div class="modal-dialog" role="document">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h1>Invite Friends</h1>
+			<%= form_for 'invitions/create' do |f| %>
+				<div class="modal-body">
+					<%= f.text_field 'emails', class: 'form-control', placeholder: 'Input email(s) with command if more two emails' %>
+				</div>
+				<div class="modal-footer">
+					<%= f.submit 'Invite', class: 'btn btn-primary' %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
