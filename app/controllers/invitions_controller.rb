@@ -1,9 +1,11 @@
 class InvitionsController < ApplicationController
-	def new
+	def invite
 		
 	end
 
-	def create
-		
+	def sendmail
+		emails = params[:emails].split("#")
+
+		redirect_to '/'
 	end
 end
