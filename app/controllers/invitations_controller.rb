@@ -1,5 +1,6 @@
 class InvitationsController < ApplicationController
   def invite
+
   end
 
   def sendmail
@@ -7,7 +8,7 @@ class InvitationsController < ApplicationController
   	emails = params[:emails].split("#")
   	emails.each do |email|
   		if isEmail(email)
-  			UserMailer.invite_email(email).deliver_later
+  			UserMailer.invite_email(spree_current_user, email).deliver_later
   			i = i + 1
   		end
   	end
