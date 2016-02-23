@@ -17,13 +17,11 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
 
   # POST /resource/sign_up
   def create
+    referer_id = nil
     unless params[:spree_user][:referer_token].nil?
       referer_id = Spree::User.find_by(:referer_token => params[:spree_user][:referer_token]).id
-      spree_user_params[:referer_id] = referer_id
     end
-    puts spree_user_params
-    raise(e)
-    @user = build_resource(spree_user_params)
+    @user = build_resource(spree_user_params.merge(:referer_id => referer_id))
     resource_saved = resource.save
     yield resource if block_given?
     if resource_saved
@@ -48,7 +46,6 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
         render :new
       end
     end
-    puts spree_current_user
   end
 
   # GET /resource/edit
