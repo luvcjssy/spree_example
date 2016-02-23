@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222062042) do
+ActiveRecord::Schema.define(version: 20160223032951) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -940,10 +940,12 @@ ActiveRecord::Schema.define(version: 20160222062042) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.integer  "referer_id"
+    t.string   "referer_token"
   end
 
   add_index "spree_users", ["deleted_at"], name: "index_spree_users_on_deleted_at"
   add_index "spree_users", ["email"], name: "email_idx_unique", unique: true
+  add_index "spree_users", ["referer_token"], name: "index_spree_users_on_referer_token", unique: true
   add_index "spree_users", ["spree_api_key"], name: "index_spree_users_on_spree_api_key"
 
   create_table "spree_variants", force: :cascade do |t|

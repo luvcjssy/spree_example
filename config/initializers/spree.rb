@@ -16,3 +16,6 @@ Spree.config do |config|
 end
 
 Spree.user_class = "Spree::User"
+	
+Spree::PermittedAttributes.user_attributes.push << :referer_id
+Spree::PermittedAttributes.user_attributes.push << :referer_token

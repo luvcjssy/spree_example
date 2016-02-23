@@ -17,6 +17,12 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
 
   # POST /resource/sign_up
   def create
+    unless params[:spree_user][:referer_token].nil?
+      referer_token = params[:spree_user][:referer_token]
+      referer_id = Spree::User.where(:referer_token => referer_token)
+      # spree_user_params.referer_id = referer_id
+    end
+    raise(e)
     @user = build_resource(spree_user_params)
     resource_saved = resource.save
     yield resource if block_given?
@@ -38,6 +44,7 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
       clean_up_passwords(resource)
       render :new
     end
+    puts spree_current_user
   end
 
   # GET /resource/edit
