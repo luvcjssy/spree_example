@@ -18,10 +18,10 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
   # POST /resource/sign_up
   def create
     unless params[:spree_user][:referer_token].nil?
-      referer_token = params[:spree_user][:referer_token]
-      referer_id = Spree::User.where(:referer_token => referer_token)
-      # spree_user_params.referer_id = referer_id
+      referer_id = Spree::User.find_by(:referer_token => params[:spree_user][:referer_token]).id
+      spree_user_params[:referer_id] = referer_id
     end
+    puts spree_user_params
     raise(e)
     @user = build_resource(spree_user_params)
     resource_saved = resource.save
@@ -42,7 +42,11 @@ class Spree::UserRegistrationsController < Devise::RegistrationsController
       end
     else
       clean_up_passwords(resource)
-      render :new
+      unless params[:spree_user][:referer_token].nil?
+        redirect_to(:back)
+      else
+        render :new
+      end
     end
     puts spree_current_user
   end
